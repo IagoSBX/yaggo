@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastFood - Delivery de Pizza</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">FastFood</div>
+        <input type="text" class="search-bar" placeholder="Buscar comida...">
+        <div class="cart">
+            🛒 <span class="badge">0</span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="carousel">
+            <div class="slide active"><img src="pizza-promo.jpg" alt="30% off pizza"></div>
+            <div class="slide"><img src="burger-promo.jpg" alt="Burger combo"></div>
+            <div class="slide"><img src="sushi-promo.jpg" alt="Frete grátis em sushi"></div>
+        </div>
+        <div class="indicators">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- Categorias -->
+    <section class="categories">
+        <button>🥡 Todos</button>
+        <button>🍕 Pizza</button>
+        <button>🍔 Burger</button>
+        <button>🍣 Sushi</button>
+        <button>🥤 Bebidas</button>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <h2>Produtos em Destaque</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="pizza-placeholder.jpg" alt="Pizza Margherita">
+                <h3>Pizza Margherita</h3>
+                <p>Deliciosa pizza com molho de tomate e queijo.</p>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p class="price">R$ 29,90</p>
+                <button class="add-to-cart">Adicionar ao Carrinho</button>
+            </div>
+            <div class="product-card">
+                <img src="pizza-placeholder.jpg" alt="Pizza Pepperoni">
+                <h3>Pizza Pepperoni</h3>
+                <p>Pizza com muito pepperoni e queijo.</p>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p class="price">R$ 34,90</p>
+                <button class="add-to-cart">Adicionar ao Carrinho</button>
+            </div>
+            <!-- Adicione mais cartões de produtos conforme necessário -->
+        </div>
+    </section>
+
+    <!-- Footer Navigation -->
+    <footer>
+        <div class="footer-nav">
+            <span>🏠 Home</span>
+            <span>📜 Menu</span>
+            <span>🛒 Carrinho</span>
+            <span>📦 Pedidos</span>
+            <span>👤 Perfil</span>
+        </div>
+    </footer>
+
+    <script>
+        // Script para o carrossel
+        $(document).ready(function(){
+            let currentIndex = 0;
+            const slides = $('.slide');
+            const dots = $('.dot');
+
+            function showSlide(index) {
+                slides.removeClass('active');
+                dots.removeClass('active');
+                slides.eq(index).addClass('active');
+                dots.eq(index).addClass('active');
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            }
+
+            setInterval(nextSlide, 5000); // Muda de slide a cada 5 segundos
+        });
+    </script>
+</body>
+</html>
